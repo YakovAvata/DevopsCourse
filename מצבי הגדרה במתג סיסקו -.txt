@@ -1,0 +1,29 @@
+מצבי הגדרה במתג סיסקו - 
+SW1> --> enable mode ( exit,exit )
+SW1# --> exec mode ( exit )
+SW1(config)# --> config mode
+SW2(config-if)# --> config interface mode
+
+Save – שמירת הגדרות ב-Vpc ב-eve-ng
+Hostname <NAME> - שינוי שם של Cisco Switch.
+Write Memory – להגיע ל-exec mode שמירת הגדרות ב-Cisco Switch ( עובד במצב סולמית // סולמית זה בפנים ).
+Show vlan – פקודה שמראה את ה-Vlans שמוגדרים על Switch.
+Show run – פקודה שמראה את כול ההגדרות על ה-Switch.
+Switchport access vlan 6 – הגדרת port ב-Switch ל-Vlan 6.
+SW2(config-if)#interface gi0/0
+SW2(config-if)#switchport access vlan 2
+% Access VLAN does not exist. Creating vlan 2
+SW2(config-if)#
+הגדרת שם Vlan – להגיע למצב Config ואז : 
+
+SW1(config)#vlan 2
+SW1(config-vlan)#name Aviv
+
+הגדרת Port ב-Trunk – יש להגיע למצב Config-if ב-Port שפונה לכיוון מתג אחר ( Interface.. ) ואז:
+SW2(config-if)#switchport trunk encapsulation dot1q
+SW2(config-if)#switchport mode trunk
+
+הצגת ממשקים ב-Trunk – מגיעים ל-exec-mode ואז :
+SW2#show interfaces trunk
+
+
